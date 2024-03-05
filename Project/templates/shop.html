@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mens wears</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+  
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+        margin-top: 80px; /* Adjusted margin-top */
+      }
+  
+      .product {
+        width: 250px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      .product:hover {
+        transform: translateY(-5px);
+      }
+  
+      .product img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+  
+      .product h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+      }
+  
+      .product p {
+        margin: 10px 0;
+        font-size: 16px;
+        font-weight: bold;
+        color: #666;
+      }
+  
+      .product-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      .buy-button,
+.add-to-cart-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button {
+  background-color: #6c757d; /* Same color as navbar */
+  color: white; /* Text color */
+}
+
+.add-to-cart-button {
+  background-color: #6c757d; /* Same color as navbar */
+  color: white; /* Text color */
+}
+
+.buy-button:hover,
+.add-to-cart-button:hover {
+  background-color: #555e63; /* Darker shade for hover effect */
+}
+.navbar-custom {
+  background-color: #6c757d;
+}
+
+/* Adjust text color for better visibility */
+.navbar-custom .navbar-nav .nav-link {
+  color: #ffffff; /* White text color */
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-color: #ffffff; /* White color for the toggle icon */
+}
+
+.navbar-custom .navbar-toggler {
+  border-color: #ffffff; /* White border color for the toggle button */
+}
+
+/* Style for the section */
+.section {
+  padding-top: 50px; /* Add some space for better visibility */
+}
+
+.navbar {
+  background-color: #6c757d;
+  overflow: hidden;
+  padding: 10px; /* Added padding for the navbar */
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-family: sans-serif; /* Added font-family */
+}
+
+.search-container {
+  float: right;
+}
+
+input[type=text] {
+  padding: 8px; /* Adjusted padding for the input field */
+  margin-top: 8px;
+  font-size: 15px; /* Adjusted font size */
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+button[type=submit] {
+  float: right;
+  padding: 8px 10px; /* Adjusted padding for the button */
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 14px; /* Adjusted font size */
+  border: none;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+button[type=submit]:hover {
+  background: #ccc;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e3e6f3;
+  padding: 20px 80px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-list-nav ul {
+  display: flex;
+}
+.header-list-nav ul li {
+  list-style-type: none;
+  padding: 0 20px;
+  position: relative;
+}
+.header-list-nav ul a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+}
+.header-list-nav ul a:hover,
+.header-list-nav ul a.active {
+  color: #088178;
+  content: "";
+}
+.header-list-icon a {
+  color: #1a1a1a;
+  padding-left: 20px;
+  transition: 0.3s ease;
+}
+.header-list-icon a:hover,
+.header-list-nav ul a.active {
+  color: #088178;
+}
+.header-list-nav ul li a:focus {
+  outline: none;
+}
+
+.header-list-nav ul li a.active::after,
+.header-list-nav ul li a:hover::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+
+  </style>-
+</head>
+<body>
+  <header>
+      <div id="header">
+        <div class="header-logo">
+          <a href="{% url 'Home' %}" style="size: 10px;"><img src="{% static 'logo.png' %}" style="width: 100px; height: auto;"/></a>
+        </div>
+        <div class="header-list">
+          <nav class="header-list-nav">
+            <ul>
+              <li><a  href="home">Home</a></li>
+              <li><a class="active" href="login">Shop</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="shop">Login</a></li>
+            </ul>
+          </nav>
+          <div class="header-list-icon">
+            <a href=""><i class="fa fa-bag-shopping"></i></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <div class="container">
+      {% for i in shopping %}
+      <div class="product">
+          <img src="{{ i.picture.url }}" alt="{{ i.name }}">
+          <h3>{{ i.name }}</h3>
+          <p>${{ i.price }}</p>
+          <div class="product-buttons">
+              <button class="buy-button">Buy</button>
+              <button class="add-to-cart-button">Add to Cart</button>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</body>

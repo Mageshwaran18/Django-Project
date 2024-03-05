@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Larana Inc.</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('{% static "signup.png" %}');
+      background-size: cover;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8); /* Add transparency to container */
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px; /* Adjust width as needed */
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>My Cup of Coffee</h1>
+    </header>
+    <main>
+      <form method="post">
+      {% csrf_token %}
+        <label for="Email">Email</label>
+        <input type="text" id="username" name="Email" placeholder="Insert your e-mail or username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Insert your password">
+        <div class="buttons">
+          <button type="submit" href="">Sign In</button>
+          <p style ="color: black;">New member? <a href="SignUp" style="font-weight: bold; color: black;">Sign up here</a>.</p>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
